@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/go-telegram-bot-api/telegram-bot-api"
 	"log"
+	"time"
 )
 
 func main()  {
@@ -16,7 +17,8 @@ func main()  {
 	u := tgbotapi.NewUpdate(0)
 	u.Timeout = 60
 	//updates, err := bot.GetUpdatesChan(u)
-	msg := tgbotapi.NewMessage(618679036,"2")
+	ct := time.Now();
+	msg := tgbotapi.NewMessage(618679036, ct.String())
 	response, err := bot.Send(msg)
 	log.Print(response)
 }
